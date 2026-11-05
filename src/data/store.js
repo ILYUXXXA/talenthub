@@ -874,7 +874,7 @@ export function sendPartnership(payload = {}) {
     description: '',
     ...payload,
     id: nextId('p'),
-    status: 'pending',
+    status: payload.status || 'pending',
   }
   if (!created.description && created.text) created.description = created.text
   if (!created.text && created.description) created.text = created.description
