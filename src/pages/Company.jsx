@@ -81,7 +81,10 @@ export default function Company() {
   }
 
   return <main className="org-page"><div className="container org-container">
-    <section className="org-hero org-company-hero"><div><span className="org-eyebrow">КАБИНЕТ КОМПАНИИ / АКАДЕМИИ</span><h1>{org}</h1><p>Развивайте образовательные инициативы, находите учреждения-партнёры и показывайте реальный вклад вашей организации в развитие учащихся.</p><div className="row org-hero-meta"><span>IT и технологии</span><span>·</span><span>Представитель: {name}</span><span className="badge badge-ok">Профиль организации</span></div></div><div className="org-company-side"><nav className="org-tabs org-company-tabs" aria-label="Разделы кабинета">{[['overview','Обзор'],['events','Инициативы'],['partners','Партнёрства'],['schools','Учреждения'],['create','Создать инициативу']].map(([id,label]) => <button key={id} type="button" className={tab === id ? 'active' : ''} onClick={() => { setTab(id); setNotice('') }}>{label}</button>)}</nav><div className="org-hero-mark"><span>{org.slice(0,2).toUpperCase()}</span><small>TalentHub<br/>Partner</small></div></div></section>
+    <section className="org-hero"><div><span className="org-eyebrow">КАБИНЕТ КОМПАНИИ / АКАДЕМИИ</span><h1>{org}</h1><p>Развивайте образовательные инициативы, находите учреждения-партнёры и показывайте реальный вклад вашей организации в развитие учащихся.</p><div className="row org-hero-meta"><span>IT и технологии</span><span>·</span><span>Представитель: {name}</span><span className="badge badge-ok">Профиль организации</span></div></div><div className="org-hero-mark"><span>{org.slice(0,2).toUpperCase()}</span><small>TalentHub<br/>Partner</small></div></section>
+    <nav className="org-tabs" aria-label="Разделы кабинета">
+      {[['overview','Обзор'],['events','Инициативы'],['partners','Партнёрства'],['schools','Учреждения'],['create','Создать инициативу']].map(([id,label]) => <button key={id} type="button" className={tab === id ? 'active' : ''} onClick={() => { setTab(id); setNotice('') }}>{label}</button>)}
+    </nav>
     {notice ? <div className="notice org-notice" role="status">{notice}</div> : null}
 
     {tab === 'overview' ? <>
